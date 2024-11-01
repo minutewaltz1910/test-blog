@@ -44,17 +44,21 @@
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
+        // Fetch the Markdown file
         fetch('sample%20novel.md')
             .then(response => {
-                if (!response.ok) throw new Error('Network response was not ok.');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok: ' + response.statusText);
+                }
                 return response.text();
             })
             .then(text => {
+                // Render the Markdown content
                 document.getElementById('content').innerHTML = marked(text);
             })
             .catch(error => {
                 document.getElementById('content').innerHTML = "<p>Failed to load content. Please check the file name and path.</p>";
-                console.error(error);
+                console.error('Fetch error: ', error);
             });
     </script>
 </body>
