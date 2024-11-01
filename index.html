@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Midnight Chronicles</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #007BFF;
+        }
+        pre {
+            background: #f8f8f8;
+            padding: 10px;
+            border: 1px solid #ddd;
+            overflow: auto;
+        }
+        a {
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The Midnight Chronicles</h1>
+        <h2>By Your Name</h2>
+        <hr>
+        <div id="content">
+            <!-- Markdown content will be injected here -->
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        fetch('sample%20novel.md')
+            .then(response => response.text())
+            .then(text => {
+                document.getElementById('content').innerHTML = marked(text);
+            });
+    </script>
+</body>
+</html>
