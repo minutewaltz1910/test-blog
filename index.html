@@ -54,6 +54,7 @@
             })
             .catch(error => {
                 document.getElementById('content').innerHTML = "<p>Failed to load content. Please check the file name and path.</p>";
+                console.error(error);
             });
     </script>
 </body>
